@@ -112,8 +112,7 @@ useEffect(() => {
           <ol>
             <li>Klaim garansi wajib menyertakan bukti pembayaran berupa nota transaksi perbaikan.</li>
             <li>Pelanggan yang tidak dapat menunjukkan struk atau nota fisik, maka dapat menunjukkannya melalui link ini.</li>
-            <li>Pelanggan yang kehilangan nota dan tidak memiliki bukti foto/link dari kami, akan tetap dilayani proses klaimnya dengan ketentuan membawa KTP asli dan wajib difoto oleh kami.</li>
-            <li>Nota pelanggan yang tidak dapat dilakukan tracking, maka tidak dapat dilayani proses klaim garansinya.</li>
+            <li>Pelanggan yang kehilangan nota dan tidak memiliki bukti foto/link dari kami, akan tetap dilayani proses klaimnya selama nota perbaikan dapat dilakukan tracking untuk dicetak kembali.</li>            <li>Nota pelanggan yang tidak dapat dilakukan tracking, maka tidak dapat dilayani proses klaim garansinya.</li>
             <li>Pelanggan yang mengalami kendala pada devicenya dapat mengonfirmasi terlebih dahulu keluhannya ke nomer whatsapp 08999081100 jika tidak dapat datang ke store di waktu tersebut.</li>
             <li>Garansi tidak berlaku pada item di luar perbaikan dari nota transaksi.</li>
             <li>Pelanggan diperkenankan melakukan klaim garansi maksimal sebanyak 3 (tiga) kali selama masa periode garansi.</li>
