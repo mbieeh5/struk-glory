@@ -59,7 +59,7 @@ useEffect(() => {
           <InvoiceInfo>
             <p>No Nota: {data.NoNota}</p>
             <p>TGL Masuk: {data.TglMasuk.split('T')[0]}</p>
-            <p>TGL Keluar: {data.TglKeluar.split('T')[0]}</p>
+            <p>TGL Keluar: {data.TglKeluar ? data.TglKeluar.split('T')[0] : 'belum di ambil'}</p>
           </InvoiceInfo>
         </Header>
         <CompanyInfo>
@@ -77,7 +77,7 @@ useEffect(() => {
         <Table>
           <thead>
             <tr>
-              <th>Deskripsi</th>
+              <th>Dilayani</th>
               <th>Merk HP</th>
               <th>Kerusakan</th>
               <th>Harga</th>
@@ -85,7 +85,7 @@ useEffect(() => {
           </thead>
           <tbody>
             <tr>
-              <td>Penerima: {data.Penerima}</td>
+              <td>{data.Penerima}</td>
               <td>{data.MerkHp}</td>
               <td>{data.Kerusakan}</td>
               <td>{parseInt(data.Harga).toLocaleString('id')}</td>
@@ -97,7 +97,7 @@ useEffect(() => {
         <Footer>
           <p><strong>Teknisi: {data.Teknisi}</strong></p>
           <p>Lokasi Service: GloryCell {data.Lokasi}</p>
-          <p>Status: <strong>{data.status.toLocaleUpperCase()}</strong></p>
+          <p>Status: <strong>{data.status.toLocaleUpperCase() || 'belum di ambil'}</strong></p>
         </Footer>
         <TermsAndConditions>
           <h2>Syarat Ketentuan Service</h2>
@@ -117,7 +117,7 @@ useEffect(() => {
             <li>Garansi tidak berlaku pada item di luar perbaikan dari nota transaksi.</li>
             <li>Pelanggan diperkenankan melakukan klaim garansi maksimal sebanyak 3 (tiga) kali selama masa periode garansi.</li>
             <li>Garansi tidak berlaku apabila terjadi indikasi human error (kelalaian peng-gunaan) seperti terjatuh, terhempas, tertekan, kena air, overcharging, dan disebabkan penggunaan charger yang cacat/tidak wajar.</li>
-            <li>Segala kerusakan FUNGSIONAL ( kamera , keyboard dll ) yang di temukan dan data yang hilang setelah selesai perbaikan untuk unit yang masuk dalam keadaan NO CHECK (Mati Total, Blank, No Touch, Stuck Logo, Disabled), adalah DILUAR TANGGUNG JAWAB GloryCell.</li>
+            <li>Segala kerusakan FUNGSIONAL (Camera, Layar Eror, Speaker, Mic, Charge, Dll) yang di temukan dan data yang hilang setelah selesai perbaikan untuk unit yang masuk dalam keadaan NO CHECK (Mati Total, Blank, No Touch, Stuck Logo, Disabled), adalah DILUAR TANGGUNG JAWAB GloryCell.</li>
             <li>Garansi tidak berlaku jika diketahui terjadi pembongkaran device di luar GloryCell, segel rusak atau hilang.</li>
           </ol>
           <h3>Persyaratan Khusus</h3>
@@ -125,7 +125,7 @@ useEffect(() => {
             <li>Garansi Service Mesin hanya berlaku sesuai dengan kendala awal kerusakan dan berada pada Jalur IC yang sama.</li>
             <li>Garansi LCD/Touchscreen yang berlaku jika kondisi fisik LCD seperti baru dan hanya kendala pada LCD Blank Hitam, Touchscreen Error, bergaris sehelai, Black Spot dan White Spot (Faktor Pemasangan)</li>
             <li>Garansi LCD tidak berlaku apabila terjadi kerusakan pada fisik LCD mengalami Gores (Baret)/Retak/Pecah Luar dan tampilan LCD Bergaris atau Black Spot.</li>
-            <li>Garansi Baterai tidak berlaku apabila terjadi indikasi over-charging, baterai menggelembung, dan penurunan kesehatan baterai secara normal.</li>
+            <li>Garansi Baterai tidak berlaku apabila terjadi indikasi over-charging, baterai menggelembung.</li>
             <li>Pergantian Housing, Backdoor, dan Kaca Kamera hanya berupa Garansi Pemasangan di hari yang sama.</li>
             <li>Barang yang tidak di ambil selama 14 Hari, hilang / rusak bukan merupakan tanggung jawab dari GloryCell.</li>
             <li>Maksimal pengambilan device inap 14 Hari setelah konfirmasi pengambilan unit kepada customer, apabila dalam waktu tersebut tidak ada pengambilan device maka device akan dikirim ke Kantor Pusat.</li>
