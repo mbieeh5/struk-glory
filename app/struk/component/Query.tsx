@@ -1,6 +1,6 @@
 'use client'
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getDatabase, ref, child, get } from "firebase/database";
 import { app } from '../../../firebase';
 import { DataRes } from '../../../types';
@@ -33,7 +33,8 @@ useEffect(() => {
         try {
           const snapshot = await get(child(dbRef, `Service/sandboxDS/${noNota}`));
           if (snapshot.exists()) {
-            setData(snapshot.val());
+            const datas = snapshot.val();
+            setData(datas);
             console.log(snapshot.val())
           } else {
             console.log("No data available");
@@ -59,7 +60,7 @@ useEffect(() => {
           <InvoiceInfo>
             <p>No Nota: {data.NoNota}</p>
             <p>TGL Masuk: {data.TglMasuk.split('T')[0]}</p>
-            <p>TGL Keluar: {data.TglKeluar ? data.TglKeluar.split('T')[0] : 'belum di ambil'}</p>
+            <p>TGL Keluar: {data.TglKeluar && data.TglKeluar !== "null" ? data.TglKeluar.split('T')[0] : 'belum di ambil'}</p>
           </InvoiceInfo>
         </Header>
         <CompanyInfo>
@@ -97,7 +98,7 @@ useEffect(() => {
         <Footer>
           <p><strong>Teknisi: {data.Teknisi}</strong></p>
           <p>Lokasi Service: GloryCell {data.Lokasi}</p>
-          <p>Status: <strong>{data.status.toLocaleUpperCase() || 'belum di ambil'}</strong></p>
+          <p>Status: <strong>{data.status === 'sudah diambil' ? 'SUKSES' : data.status}</strong></p>
         </Footer>
         <TermsAndConditions>
           <h2>Syarat Ketentuan Service</h2>
