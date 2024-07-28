@@ -5,6 +5,8 @@ import { getDatabase, ref, child, get } from "firebase/database";
 import { app } from '../../../firebase';
 import { DataRes } from '../../../types';
 import styled from 'styled-components';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 
@@ -48,13 +50,43 @@ useEffect(() => {
     }
   }, [isClient, noNota]);
 
+  const saveAsPDF = async () => {
+    const element = document.getElementById('invoice');
+    if (element) {
+      const canvas = await html2canvas(element);
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'cm', 'a4', false);
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth() - 1.5;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`invoice_${noNota}.pdf`);
+    }
+  };
+
+  const shareInvoice = () => {
+    const shareData = {
+      title: 'Invoice',
+      text: 'Here is your invoice',
+      url: window.location.href
+    };
+    if (navigator.share) {
+      navigator.share(shareData)
+        .then(() => console.log('Invoice shared successfully'))
+        .catch((error) => console.error('Error sharing invoice:', error));
+    } else {
+      console.error('Sharing not supported in this browser');
+    }
+  };
+
   if (!isClient || !data) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
-      <InvoiceWrapper>
+
+      <InvoiceWrapper id="invoice">
         <Header>
           <Title>Invoice</Title>
           <InvoiceInfo>
@@ -133,12 +165,38 @@ useEffect(() => {
           </ol>
         </TermsAndConditions>
       </InvoiceWrapper>
+      <ButtonContainer>
+        <Button onClick={() => saveAsPDF()} >Simpan Invoice</Button>
+        <Button onClick={() => shareInvoice()}>Bagikan Invoice</Button>
+    </ButtonContainer>
     </>
   );
 };
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-top: 1rem;
+`;
+
+const Button = styled.button`
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
 
 const InvoiceWrapper = styled.div`
-  max-width: 800px;
+  max-width: 100%;
+  max-height: 100%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
