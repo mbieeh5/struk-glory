@@ -110,7 +110,7 @@ useEffect(() => {
         <Table>
           <thead>
             <tr>
-              <th>Dilayani</th>
+              <th>Imei</th>
               <th>Merk HP</th>
               <th>Kerusakan</th>
               <th>Harga</th>
@@ -118,7 +118,7 @@ useEffect(() => {
           </thead>
           <tbody>
             <tr>
-              <td>{data.Penerima}</td>
+              <td>{data.Imei ? data.Imei : 0}</td>
               <td>{data.MerkHp}</td>
               <td>{data.Kerusakan}</td>
               <td>{parseInt(data.Harga).toLocaleString('id')}</td>
@@ -128,6 +128,7 @@ useEffect(() => {
         </TableContainer>
         
         <Footer>
+          <p>T: {data.Penerima}</p>
           <p><strong>Teknisi: {data.Teknisi}</strong></p>
           <p>Lokasi Service: GloryCell {data.Lokasi}</p>
           <p>Status: <strong>{data.status === 'sudah diambil' ? 'SUKSES' : data.status}</strong></p>

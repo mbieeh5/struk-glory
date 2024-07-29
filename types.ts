@@ -9,6 +9,7 @@ export interface DataRes {
     Penerima: string;
     Harga: any;
     Teknisi: string;
+    Imei: any;
     Lokasi: string;
     status: string;
   }
