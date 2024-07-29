@@ -128,7 +128,7 @@ useEffect(() => {
         </TableContainer>
         
         <Footer>
-          <p>T: {data.Penerima}</p>
+          <p>Dilayani: {data.Penerima}</p>
           <p><strong>Teknisi: {data.Teknisi}</strong></p>
           <p>Lokasi Service: GloryCell {data.Lokasi}</p>
           <p>Status: <strong>{data.status === 'sudah diambil' ? 'SUKSES' : data.status}</strong></p>
