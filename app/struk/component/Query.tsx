@@ -110,17 +110,17 @@ useEffect(() => {
         <Table>
           <thead>
             <tr>
-              <th>Imei</th>
               <th>Merk HP</th>
               <th>Kerusakan</th>
+              <th>Imei</th>
               <th>Harga</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>{data.Imei ? data.Imei : 0}</td>
               <td>{data.MerkHp}</td>
               <td>{data.Kerusakan}</td>
+              <td>{data.Imei ? data.Imei : 0}</td>
               <td>{parseInt(data.Harga).toLocaleString('id')}</td>
             </tr>
           </tbody>
