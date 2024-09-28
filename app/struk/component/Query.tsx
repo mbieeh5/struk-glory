@@ -97,8 +97,9 @@ useEffect(() => {
         </Header>
         <CompanyInfo>
           <p><strong>Glory Cell</strong></p>
-          <p>Jln Raya Cikaret no 002B-C Harapan Jaya</p>
-          <p> Kec Cibinong, kab Bogor, Jawabarat</p>
+          <p>IG: <a href='https://instagram.com/glorycell.official' target='_blank'>Glorycell.official</a></p>
+          <a href='https://maps.app.goo.gl/eBGqugQ2p1ZT3h8F9' target='_blank'><p>Jln Raya Cikaret no 002B-C Harapan Jaya</p>
+          <p> Kec Cibinong, kab Bogor, Jawabarat</p></a>
           <p>Telepon: 08999081100</p>
         </CompanyInfo>
         <CustomerInfo>
@@ -143,6 +144,7 @@ useEffect(() => {
           <h2>Ketentuan Garansi</h2>
           <h3>Persyaratan Umum</h3>
           <ol>
+            <li>Garansi Baterai berlaku 30 hari, untuk pebaikan Lain Lain Garansi 7 hari Dan <strong>Software tidak bergaransi</strong></li>
             <li>Klaim garansi wajib menyertakan bukti pembayaran berupa nota transaksi perbaikan.</li>
             <li>Pelanggan yang tidak dapat menunjukkan struk atau nota fisik, maka dapat menunjukkannya melalui link ini.</li>
             <li>Pelanggan yang kehilangan nota dan tidak memiliki bukti foto/link dari kami, akan tetap dilayani proses klaimnya selama nota perbaikan dapat dilakukan tracking untuk dicetak kembali.</li>            <li>Nota pelanggan yang tidak dapat dilakukan tracking, maka tidak dapat dilayani proses klaim garansinya.</li>
