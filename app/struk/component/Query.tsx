@@ -164,7 +164,7 @@ useEffect(() => {
             <li>Pergantian Housing, Backdoor, dan Kaca Kamera hanya berupa Garansi Pemasangan di hari yang sama.</li>
             <li>Barang yang tidak di ambil selama 14 Hari, hilang / rusak bukan merupakan tanggung jawab dari GloryCell.</li>
             <li>Maksimal pengambilan device inap 14 Hari setelah konfirmasi pengambilan unit kepada customer, apabila dalam waktu tersebut tidak ada pengambilan device maka device akan dikirim ke Kantor Pusat.</li>
-            <li>Apabila dalam waktu 30 hari masih tidak ada pengambilan device inap, maka device customer bukan lagi tanggung jawab dari Icolor GloryCell.</li>
+            <li>Apabila dalam waktu 30 hari masih tidak ada pengambilan device inap, maka device customer bukan lagi tanggung jawab dari GloryCell.</li>
           </ol>
         </TermsAndConditions>
       </InvoiceWrapper>
