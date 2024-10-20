@@ -37,9 +37,8 @@ useEffect(() => {
           if (snapshot.exists()) {
             const datas = snapshot.val();
             setData(datas);
-            console.log(snapshot.val())
           } else {
-            console.log("No data available");
+            console.error("No data available");
           }
         } catch (error) {
           console.error(error);
@@ -72,7 +71,7 @@ useEffect(() => {
     };
     if (navigator.share) {
       navigator.share(shareData)
-        .then(() => console.log('Invoice shared successfully'))
+        .then(() => console.error('Invoice shared successfully'))
         .catch((error) => console.error('Error sharing invoice:', error));
     } else {
       console.error('Sharing not supported in this browser');
@@ -112,7 +111,7 @@ useEffect(() => {
           <thead>
             <tr>
               <th>Merk HP</th>
-              <th>Kerusakan</th>
+              <th>Perbaikan</th>
               <th>Imei</th>
               <th>Harga</th>
             </tr>
@@ -129,6 +128,7 @@ useEffect(() => {
         </TableContainer>
         
         <Footer>
+          <p>Kerusakan: {data.Keluhan ? data.Keluhan : " "}</p>
           <p>Dilayani: {data.Penerima}</p>
           <p><strong>Teknisi: {data.Teknisi}</strong></p>
           <p>Lokasi Service: GloryCell {data.Lokasi}</p>

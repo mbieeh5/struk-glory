@@ -6,6 +6,7 @@ export interface DataRes {
     TglKeluar: string;
     MerkHp: string;
     Kerusakan: string;
+    Keluhan: string;
     Penerima: string;
     Harga: any;
     Teknisi: string;
