@@ -125,10 +125,11 @@ useEffect(() => {
             </tr>
           </tbody>
         </Table>
-        </TableContainer>
-        
-        <Footer>
           <p>Kerusakan: {data.Keluhan ? data.Keluhan : " "}</p>
+        </TableContainer>
+        <TermsAndConditions>
+        </TermsAndConditions> 
+        <Footer>
           <p>Dilayani: {data.Penerima}</p>
           <p><strong>Teknisi: {data.Teknisi}</strong></p>
           <p>Lokasi Service: GloryCell {data.Lokasi}</p>
@@ -267,7 +268,6 @@ const Table = styled.table`
 
 const Footer = styled.div`
   text-align: left;
-  margin-top: 20px;
   p {
     margin: 5px 0;
   }
