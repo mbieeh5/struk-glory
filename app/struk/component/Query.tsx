@@ -145,13 +145,13 @@ useEffect(() => {
           <h2>Ketentuan Garansi</h2>
           <h3>Persyaratan Umum</h3>
           <ol>
-            <li>Garansi Baterai berlaku 30 hari, untuk pebaikan Lain Lain Garansi 7 hari Dan <strong>Software tidak bergaransi</strong></li>
+            <li>Perbaikan Lupa Pola/Sandi/Akun atau Install Ulang (SOFTWARE) tidak bergaransi</li>
             <li>Klaim garansi wajib menyertakan bukti pembayaran berupa nota transaksi perbaikan.</li>
             <li>Pelanggan yang tidak dapat menunjukkan struk atau nota fisik, maka dapat menunjukkannya melalui link ini.</li>
             <li>Pelanggan yang kehilangan nota dan tidak memiliki bukti foto/link dari kami, akan tetap dilayani proses klaimnya selama nota perbaikan dapat dilakukan tracking untuk dicetak kembali.</li>            <li>Nota pelanggan yang tidak dapat dilakukan tracking, maka tidak dapat dilayani proses klaim garansinya.</li>
             <li>Pelanggan yang mengalami kendala pada devicenya dapat mengonfirmasi terlebih dahulu keluhannya ke nomer whatsapp 08999081100 jika tidak dapat datang ke store di waktu tersebut.</li>
             <li>Garansi tidak berlaku pada item di luar perbaikan dari nota transaksi.</li>
-            <li>Pelanggan diperkenankan melakukan klaim garansi maksimal sebanyak 3 (tiga) kali selama masa periode garansi.</li>
+            <li>Pelanggan diperkenankan melakukan <strong>klaim garansi maksimal sebanyak 2 (dua) kali</strong> selama masa periode garansi.</li>
             <li>Garansi tidak berlaku apabila terjadi indikasi human error (kelalaian peng-gunaan) seperti terjatuh, terhempas, tertekan, kena air, overcharging, dan disebabkan penggunaan charger yang cacat/tidak wajar.</li>
             <li>Segala kerusakan FUNGSIONAL (Camera, Layar Eror, Speaker, Mic, Charge, Dll) yang di temukan dan data yang hilang setelah selesai perbaikan untuk unit yang masuk dalam keadaan NO CHECK (Mati Total, Blank, No Touch, Stuck Logo, Disabled), adalah DILUAR TANGGUNG JAWAB GloryCell.</li>
             <li>Garansi tidak berlaku jika diketahui terjadi pembongkaran device di luar GloryCell, segel rusak atau hilang.</li>
