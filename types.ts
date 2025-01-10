@@ -10,7 +10,15 @@ export interface DataRes {
     Penerima: string;
     Harga: any;
     Teknisi: string;
+    sparepart: SparepartInterface[];
     Imei: any;
     Lokasi: string;
     status: string;
+  }
+
+  export interface SparepartInterface {
+    Sparepart: string;
+    HargaSparepart: string;
+    TypeOrColor: string;
+    Garansi? : string;
   }

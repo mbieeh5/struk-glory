@@ -16,6 +16,56 @@ export default function Query(){
     const [data, setData] = useState<DataRes | null>(null);
     const [isClient, setIsClient] = useState<Boolean>(false);
 
+    const warrantyChecker = (data: string, TglKeluar: string) => {
+      const TglKeluarValid = TglKeluar.length > 5 ? TglKeluar : '0';
+      const TanggalFormater = (Dates: string, DatesAfter: number) => {
+        const TglKeluarA = new Date(Dates);
+        const TglKeluarSG = new Date(TglKeluarA);
+        TglKeluarSG.setDate(TglKeluarSG.getDate() + DatesAfter);
+        const getDay = TglKeluarSG.getDate() < 10 ? `0${TglKeluarSG.getDate()}` : TglKeluarSG.getDate();
+        const getMonth = TglKeluarSG.getMonth() < 10 ? `0${TglKeluarSG.getMonth() + 1}` : TglKeluarSG.getMonth() + 1;
+        const getYear = TglKeluarSG.getFullYear();
+        const currentDate = new Date();
+
+        if (currentDate > TglKeluarSG) {
+          return `${getDay}/${getMonth}/${getYear}`;
+        }
+        return `${getDay}/${getMonth}/${getYear}`;
+      };
+
+      if (TglKeluarValid === '0') {
+        return 'Garansi Belum Dimulai';
+      }
+
+      if (data === '7-HARI' || data === '7-HARI-1') {
+        return TanggalFormater(TglKeluar, 7);
+      }
+      if (data === '30-HARI' || data === '30-HARI-1') {
+        return TanggalFormater(TglKeluar, 30);
+      }
+      if (data === '90-HARI' || data === '90-HARI-1') {
+        return TanggalFormater(TglKeluar, 90);
+      }
+      if (data === '120-HARI' || data === '120-HARI-1') {
+        return TanggalFormater(TglKeluar, 120);
+      }
+      return 'NON GARANSI';
+    };
+    const warrantyStatus = (TglKeluar: string, duration: number) => {
+      if(isNaN(duration)) return 'NON GARANSI';
+
+      const TglKeluarDate = new Date(TglKeluar);
+      TglKeluarDate.setDate(TglKeluarDate.getDate() + duration);
+      const currentDate = new Date();
+      const timeDiff = TglKeluarDate.getTime() - currentDate.getTime();
+      const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      if (currentDate > TglKeluarDate) {
+        return 'EXPIRED';
+      }
+      return `GARANSI (${daysLeft} hari lagi)`;
+    };
+
   useEffect(() => {
     setIsClient(true);
 }, []);
@@ -125,6 +175,32 @@ useEffect(() => {
             </tr>
           </tbody>
         </Table>
+        {data.sparepart && (
+
+          <Table>
+          <thead>
+            <tr>
+              <th>Penggantian</th>
+              <th>Masa Garansi</th>
+              <th>Berlaku s/d</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+              {data.sparepart?.map((a,i) => {
+                
+                  return (
+                    <tr key={i}>
+                      <td>{a.Sparepart}</td>
+                      <td>{a.Garansi?.replace('-', ' ')}</td>
+                      <td>{warrantyChecker(a.Garansi ? a.Garansi : 'null', data.TglKeluar)}</td>
+                      <td>{warrantyStatus(data.TglKeluar, parseInt(a.Garansi?.split('-')[0] || '0'))}</td>
+                    </tr>
+                  )
+                })}
+          </tbody>
+        </Table>
+        )}
           <p>Kerusakan: {data.Keluhan ? data.Keluhan : " "}</p>
         </TableContainer>
         <TermsAndConditions>
