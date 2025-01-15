@@ -140,8 +140,8 @@ useEffect(() => {
           <Title>Invoice</Title>
           <InvoiceInfo>
             <p>No Nota: {data.NoNota}</p>
-            <p>TGL Masuk: {data.TglMasuk.split('T')[0]}</p>
-            <p>TGL Keluar: {data.TglKeluar && data.TglKeluar !== "null" ? data.TglKeluar.split('T')[0] : 'belum di ambil'}</p>
+            <p>TGL Masuk: {new Date(data.TglMasuk).toLocaleDateString('en-GB')}</p>
+            <p>TGL Keluar: {data.TglKeluar && data.TglKeluar !== "null" ? new Date(data.TglMasuk).toLocaleDateString('en-GB') : 'belum di ambil'}</p>
           </InvoiceInfo>
         </Header>
         <CompanyInfo>
