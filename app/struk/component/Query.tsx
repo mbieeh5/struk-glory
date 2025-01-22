@@ -146,7 +146,11 @@ useEffect(() => {
         </Header>
         <CompanyInfo>
           <p><strong>Glory Cell</strong></p>
-          <p>IG: <a href='https://instagram.com/glorycell.official' target='_blank'>Glorycell.official</a></p>
+            <p>
+            <a href='https://instagram.com/glorycell.official' target='_blank'>
+              @Glorycell.official
+            </a>
+            </p>
           <a href='https://maps.app.goo.gl/eBGqugQ2p1ZT3h8F9' target='_blank'><p>Jln Raya Cikaret no 002B-C Harapan Jaya</p>
           <p> Kec Cibinong, kab Bogor, Jawabarat</p></a>
           <p>Telepon: 08999081100</p>
@@ -176,30 +180,22 @@ useEffect(() => {
           </tbody>
         </Table>
         {data.sparepart && (
-
-          <Table>
-          <thead>
-            <tr>
-              <th>Penggantian</th>
-              <th>Masa Garansi</th>
-              <th>Berlaku s/d</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-              {data.sparepart?.map((a,i) => {
-                
+          <CustomerInfo>
+            <p><strong>Penggantian Sparepart</strong></p>
+                {data.sparepart?.map((a,i) => {
                   return (
-                    <tr key={i}>
-                      <td>{a.Sparepart}</td>
-                      <td>{a.Garansi?.replace('-', ' ')}</td>
-                      <td>{warrantyChecker(a.Garansi ? a.Garansi : 'null', data.TglKeluar)}</td>
-                      <td>{warrantyStatus(data.TglKeluar, parseInt(a.Garansi?.split('-')[0] || '0'))}</td>
-                    </tr>
-                  )
-                })}
-          </tbody>
-        </Table>
+                    <div key={i}>
+                        <ul>
+                          {i+1}. {a.Sparepart}
+                        <section style={{paddingLeft: "1%", color: warrantyStatus(data.TglKeluar, parseInt(a.Garansi?.split('-')[0] || '0')) === "NON GARANSI" || warrantyStatus(data.TglKeluar, parseInt(a.Garansi?.split('-')[0] || '0')) === "EXPIRED" ? "red" : "green"}}> Masa Garansi : {a.Garansi?.replace('-', ' ')}
+                          {warrantyChecker(a.Garansi ? a.Garansi : 'null', data.TglKeluar) !== "NON GARANSI" && <>({warrantyChecker(a.Garansi ? a.Garansi : 'null', data.TglKeluar)})</>}
+                          {warrantyStatus(data.TglKeluar, parseInt(a.Garansi?.split('-')[0] || '0')) !== "NON GARANSI" && <> {warrantyStatus(data.TglKeluar, parseInt(a.Garansi?.split('-')[0] || '0'))}</>}
+                        </section>
+                        </ul>
+                    </div>
+                    )
+                  })}
+          </CustomerInfo>
         )}
           <p>Kerusakan: {data.Keluhan ? data.Keluhan : " "}</p>
         </TableContainer>
