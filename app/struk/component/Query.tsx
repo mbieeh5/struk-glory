@@ -37,6 +37,9 @@ export default function Query(){
         return 'Garansi Belum Dimulai';
       }
 
+      if (data === '3-HARI' || data === '3-HARI-1'){
+        return TanggalFormater(TglKeluar, 3)
+      }
       if (data === '7-HARI' || data === '7-HARI-1') {
         return TanggalFormater(TglKeluar, 7);
       }
